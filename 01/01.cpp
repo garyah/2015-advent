@@ -15,6 +15,8 @@ int main()
 	{
 		// TODO
 		ParensParser parser;
+		int result = parser.parse(line);
+		(void)printf("%d\n", result);
 	}
 	return 0;
 }
