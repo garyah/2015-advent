@@ -2,6 +2,10 @@
 
 #include <stdio.h>
 
+#include "ParensParser.hpp"
+
+using namespace Advent2015;
+
 int main()
 {
 	char line[MAX_LINE_SIZE] = {0};
@@ -10,7 +14,7 @@ int main()
 		   && line[0] != '\n')
 	{
 		// TODO
-		;
+		ParensParser parser;
 	}
 	return 0;
 }
