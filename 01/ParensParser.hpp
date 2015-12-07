@@ -8,7 +8,14 @@ namespace Advent2015
 			int result = 0;
 			for (char *p = input; *p; ++p)
 			{
-				result++;
+				if (*p == '(')
+				{
+					result++;
+				}
+				else if (*p == ')')
+				{
+					result--;
+				}
 			}
 			return result;
 		}
