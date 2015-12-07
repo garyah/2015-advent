@@ -1,4 +1,4 @@
-#define MAX_LINE_SIZE 80 + 1
+#define MAX_LINE_SIZE 80000 + 1
 
 #include <stdio.h>
 
