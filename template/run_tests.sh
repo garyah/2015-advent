@@ -1,2 +1,2 @@
-cat tests_input.txt | ./01 > tests_output.txt
+cat tests_input.txt | ./main > tests_output.txt
 diff tests_output_expected.txt tests_output.txt

@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "01"
+		},
+		{
+			"path": "template"
 		}
 	]
 }
