@@ -9,18 +9,37 @@ using namespace Advent2015;
 
 int main()
 {
-	char line[MAX_LINE_SIZE] = {0};
-	while (!feof(stdin)
-		   && (fgets(line, MAX_LINE_SIZE, stdin) != NULL
-		       || feof(stdin)))
+	while (!feof(stdin) && !ferror(stdin))
 	{
+		char line[MAX_LINE_SIZE] = {0};
+		if (fgets(line, MAX_LINE_SIZE, stdin) == NULL)
+		{
+			if (ferror(stdin))
+			{
+				(void)fprintf(stderr, "error in input stream\n");
+				break;
+			}
+			else if (!feof(stdin))
+			{
+				(void)fprintf(stderr, "fgets() returned unexpected NULL\n");
+				break;
+			}
+		}
 		if (line[0] == '\r' || line[0] == '\n')
 		{
+			// skip all blank lines
 			continue;
 		}
-		char *pEnd = line + strlen(line) - 1;
+		size_t length = strlen(line);
+		if (0 == length)
+		{
+			// normal case of end of file with last line delimited
+			break;
+		}
+		char *pEnd = line + length - 1;
 		if (*pEnd == '\r' || *pEnd == '\n')
 		{
+			// remove delimiter(s) at end of line, if any
 			*pEnd = 0;
 		}
 
