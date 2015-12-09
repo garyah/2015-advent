@@ -45,7 +45,7 @@ int main()
 
 		ParensParser parser;
 		parser.parse(line);
-		(void)printf("%d\n", parser.getFloor());
+		(void)printf("%d\n", parser.getPositionFirstBasement());
 	}
 	return 0;
 }

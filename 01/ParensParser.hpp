@@ -3,21 +3,44 @@ namespace Advent2015
 	class ParensParser
 	{
 	public:
-		int parse(char *input)
+		ParensParser() :
+			m_floor(0),
+			m_positionFirstBasement(0)
 		{
-			int result = 0;
+		}
+
+		void parse(char *input)
+		{
+			m_floor = 0;
 			for (char *p = input; *p; ++p)
 			{
 				if (*p == '(')
 				{
-					result++;
+					m_floor++;
 				}
 				else if (*p == ')')
 				{
-					result--;
+					m_floor--;
+					if (-1 == m_floor && 0 == m_positionFirstBasement)
+					{
+						m_positionFirstBasement = p - input + 1;
+					}
 				}
 			}
-			return result;
 		}
+
+		int getFloor()
+		{
+			return m_floor;
+		}
+
+		int getPositionFirstBasement()
+		{
+			return m_positionFirstBasement;
+		}
+
+	private:
+		int m_floor;
+		int m_positionFirstBasement;
 	};
 }
