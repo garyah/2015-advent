@@ -8,7 +8,7 @@ namespace Advent2015
 	{
 	public:
 		DimensionsParser() :
-			m_totalArea(0)
+			m_totalAreaPaper(0)
 		{
 		}
 
@@ -22,16 +22,16 @@ namespace Advent2015
 				int hl = h * l;
 				int area = 2 * lw + 2 * wh + 2 * hl;
 				int slack = MIN(MIN(lw, wh), hl);
-				m_totalArea += area + slack;
+				m_totalAreaPaper += area + slack;
 			}
 		}
 
-		int getTotalArea()
+		int getTotalAreaPaper()
 		{
-			return m_totalArea;
+			return m_totalAreaPaper;
 		}
 
 	private:
-		int m_totalArea;
+		int m_totalAreaPaper;
 	};
 }

@@ -49,6 +49,6 @@ int main()
 		parser.addDimensions(line);
 	}
 
-	(void)printf("%d\n", parser.getTotalArea());
+	(void)printf("%d\n", parser.getTotalAreaPaper());
 	return 0;
 }
