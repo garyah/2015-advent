@@ -12,6 +12,7 @@ namespace Advent2015
 		void parse(char *input)
 		{
 			m_floor = 0;
+			m_positionFirstBasement = 0;
 			for (char *p = input; *p; ++p)
 			{
 				if (*p == '(')
