@@ -3,10 +3,14 @@
 #include <stdio.h>
 #include <string.h>
 
-//using namespace Advent2015;
+#include "DimensionsParser.hpp"
+
+using namespace Advent2015;
 
 int main()
 {
+	DimensionsParser parser;
+
 	while (!feof(stdin) && !ferror(stdin))
 	{
 		char line[MAX_LINE_SIZE] = {0};
@@ -42,7 +46,9 @@ int main()
 		}
 
 		// TODO: invoke class code here
-		(void)printf("%s\n", line);
+		parser.addDimensions(line);
 	}
+
+	(void)printf("%d\n", parser.getTotalArea());
 	return 0;
 }
