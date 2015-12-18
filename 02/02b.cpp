@@ -1,7 +1,4 @@
-#define MAX_LINE_SIZE 80000 + 1
-
 #include <stdio.h>
-#include <string.h>
 
 #include "../common/InputReader.hpp"
 #include "DimensionsParser.hpp"
