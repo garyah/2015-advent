@@ -1,4 +1,5 @@
-//#include <map>
+#include <string.h>
+#include <openssl/md5.h>
 
 namespace Advent2015
 {
@@ -12,9 +13,8 @@ namespace Advent2015
 
 		void generate(char *input)
 		{
-			for (char *p = input; *p; ++p)
-			{
-			}
+			unsigned char md[16 + 1] = {0};
+			(void)MD5((const unsigned char *)input, strlen(input), md);
 		}
 
 		unsigned getHashInputDecimal()
