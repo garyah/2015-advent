@@ -29,7 +29,8 @@
 
 *.pdf
 
-tests_output*.txt
+tests_output.txt
+tests_output_?.txt
 
 0?/0??
 1?/1??
