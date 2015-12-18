@@ -13,7 +13,7 @@ int main()
 	{
 		MovesParser parser;
 		parser.parse(line);
-		(void)printf("%d\n", parser.getNumHousesGifted());
+		(void)printf("%zu\n", parser.getNumHousesGifted());
 	}
 	return 0;
 }
