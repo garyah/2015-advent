@@ -5,10 +5,13 @@
 			"path": "01"
 		},
 		{
+			"path": "02"
+		},
+		{
 			"path": "template"
 		},
 		{
-			"path": "02"
+			"path": "common"
 		}
 	]
 }
