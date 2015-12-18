@@ -11,38 +11,49 @@ namespace Advent2015
 	{
 	public:
 		MovesParser() :
-			m_currentLocation(0, 0),
+			m_currentLocation1(0, 0),
+			m_currentLocation2(0, 0),
 			m_locationMap()
 		{
-			locationEntry entry(m_currentLocation, true);
+			locationEntry entry(m_currentLocation1, true);
 			(void)m_locationMap.insert(entry);
 		}
 
 		void parse(char *input)
 		{
+			location *currentLocation = &m_currentLocation1;
 			for (char *p = input; *p; ++p)
 			{
-				location oldLocation = m_currentLocation;
+				location oldLocation = *currentLocation;
 				if (*p == '^')
 				{	// up
-					m_currentLocation.second++;
+					(*currentLocation).second++;
 				}
 				else if (*p == 'v')
 				{	// down
-					m_currentLocation.second--;
+					(*currentLocation).second--;
 				}
 				else if (*p == '>')
 				{	// right
-					m_currentLocation.first++;
+					(*currentLocation).first++;
 				}
 				else if (*p == '<')
 				{	// left
-					m_currentLocation.first--;
+					(*currentLocation).first--;
 				}
-				if (oldLocation != m_currentLocation)
+				if (oldLocation != *currentLocation)
 				{
-					locationEntry entry(m_currentLocation, true);
+					locationEntry entry((*currentLocation), true);
 					(void)/* locationInsertResult result = */ m_locationMap.insert(entry);
+				}
+
+				if (currentLocation == &m_currentLocation1)
+				{
+					currentLocation = &m_currentLocation2;
+				}
+				else
+				{
+					currentLocation = &m_currentLocation1;
 				}
 			}
 		}
@@ -53,7 +64,8 @@ namespace Advent2015
 		}
 
 	private:
-		location m_currentLocation;
+		location m_currentLocation1;
+		location m_currentLocation2;
 		locationMap m_locationMap;
 	};
 }
