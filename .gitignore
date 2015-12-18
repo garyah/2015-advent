@@ -35,6 +35,7 @@ tests_output_?.txt
 0?/0??
 1?/1??
 2?/2??
-*Parser
 *Reader
+*Parser
+*Generator
 main
