@@ -2,6 +2,8 @@
 #include <string.h>
 #include <openssl/md5.h>
 
+#include <string>
+
 namespace Advent2015
 {
 	class HashInputGenerator
@@ -9,36 +11,57 @@ namespace Advent2015
 	public:
 		HashInputGenerator() :
 			m_hashInputDecimal(1),
-			m_md(),
 			m_mdString()
 		{
 		}
 
-		void generate(char *input)
+		void generate(char *secretKey)
 		{
-			(void)MD5((const unsigned char *)input, strlen(input), m_md);
+			for (unsigned hashInputDecimal = 1; ; ++hashInputDecimal)
+			{
+				char hashInput[1000 + 1] = {0};
+				unsigned char md[MD5_DIGEST_LENGTH] = {0};
+				char mdCString[MD5_DIGEST_LENGTH * 2 + 1] = {0};
+
+				(void)snprintf(hashInput, sizeof(hashInput), "%s%u", secretKey, hashInputDecimal);
+				(void)MD5((const unsigned char *)hashInput, strlen(hashInput), md);
+				hashOutputToString(md, mdCString);
+
+				std::string mdString(mdCString);
+				std::string prefix("00000");
+				if (mdString.compare(0, prefix.length(), prefix) == 0)
+				{
+					// the hash output has the required prefix, squirrel away values and return
+					m_hashInputDecimal = hashInputDecimal;
+					m_mdString = mdString;
+					return;
+				}
+			}
 		}
 
-		unsigned getHashInputDecimal()
+		unsigned getHashInputDecimal() const
 		{
 			return m_hashInputDecimal;
 		}
 
-		char *getHashOutputString()
+		const char *getHashOutputString() const
 		{
-			// string version of hash computed here, rather than with hash itself
-			char *outPtr = m_mdString;
-			for (int i = 0; i < 16; ++i)
+			return m_mdString.c_str();
+		}
+
+	private:
+		void hashOutputToString(unsigned char *md, char *mdString)
+		{
+			char *outPtr = mdString;
+			for (int i = 0; i < MD5_DIGEST_LENGTH; ++i)
 			{
-				(void)sprintf(outPtr, "%02x", m_md[i]);
+				(void)sprintf(outPtr, "%02x", md[i]);
 				outPtr += 2;
 			}
-			return m_mdString;
 		}
 
 	private:
 		unsigned m_hashInputDecimal;
-		unsigned char m_md[16];
-		char m_mdString[16 * 2 + 1];
+		std::string m_mdString;
 	};
 }
