@@ -12,7 +12,7 @@ int main()
 	while ((line = InputReader::ReadLine()) != NULL)
 	{
 		HashInputGenerator generator;
-		generator.generate(line);
+		generator.generate(line, "000000");
 		(void)printf("%u\n", generator.getHashInputDecimal());
 		(void)fprintf(stderr, "%s\n", generator.getHashOutputString());
 	}
