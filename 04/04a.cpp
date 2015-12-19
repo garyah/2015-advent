@@ -14,6 +14,7 @@ int main()
 		HashInputGenerator generator;
 		generator.generate(line);
 		(void)printf("%u\n", generator.getHashInputDecimal());
+		(void)fprintf(stderr, "%s\n", generator.getHashOutputString());
 	}
 	return 0;
 }
