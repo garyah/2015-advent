@@ -15,7 +15,7 @@ namespace Advent2015
 		{
 		}
 
-		void generate(char *secretKey)
+		void generate(char *secretKey, const char *requiredHashPrefix = "00000")
 		{
 			for (unsigned hashInputDecimal = 1; ; ++hashInputDecimal)
 			{
@@ -28,7 +28,7 @@ namespace Advent2015
 				hashOutputToString(md, mdCString);
 
 				std::string mdString(mdCString);
-				std::string prefix("00000");
+				std::string prefix(requiredHashPrefix);
 				if (mdString.compare(0, prefix.length(), prefix) == 0)
 				{
 					// the hash output has the required prefix, squirrel away values and return
