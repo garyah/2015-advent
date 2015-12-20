@@ -13,7 +13,7 @@ int main()
 	char *line = NULL;
 	while ((line = InputReader::ReadLine()) != NULL)
 	{
-		counter.addString(line);
+		counter.addStringWithNewRules(line);
 	}
 
 	(void)printf("%u\n", counter.getNiceCount());

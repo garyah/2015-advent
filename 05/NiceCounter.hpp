@@ -57,6 +57,41 @@ namespace Advent2015
 			}
 		}
 
+		void addStringWithNewRules(char *cString)
+		{
+			std::string string(cString);
+
+			// string with a doubled pair of letters can be nice
+			bool hasDoubledPairs = false;
+			for (int i = 0; i < string.length() - 3; ++i)
+			{
+				for (int j = i + 2; j < string.length() - 1; ++j)
+				{
+					if (string[i] == string[j]
+						&& string[i + 1] == string[j + 1])
+					{
+						hasDoubledPairs = true;
+					}
+				}
+			}
+
+			// string with a doubled letter can be nice
+			/*bool hasDoubles = false;
+			for (int i = 0; i < string.length() - 1; ++i)
+			{
+				if (string[i] == string[i + 1])
+				{
+					hasDoubles = true;
+				}
+			}*/
+
+			if (hasDoubledPairs && 1)
+			{
+				// all criteria met
+				m_niceCount++;
+			}
+		}
+
 		unsigned getNiceCount()
 		{
 			return m_niceCount;
