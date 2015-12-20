@@ -40,7 +40,17 @@ namespace Advent2015
 				}
 			}
 
-			if (vowelScore >= 3 && hasDoubles)
+			// string without certain letter combinations can be nice
+			bool hasNoBadSubstrings = false;
+			if (string.find("ab") == std::string::npos
+				&& string.find("cd") == std::string::npos
+				&& string.find("pq") == std::string::npos
+				&& string.find("xy") == std::string::npos)
+			{
+				hasNoBadSubstrings = true;
+			}
+
+			if (vowelScore >= 3 && hasDoubles && hasNoBadSubstrings)
 			{
 				// all criteria met
 				m_niceCount++;
