@@ -38,4 +38,5 @@ tests_output_?.txt
 *Reader
 *Parser
 *Generator
+*Counter
 main

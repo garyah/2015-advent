@@ -2,22 +2,25 @@
 	"folders":
 	[
 		{
+			"path": "common"
+		},
+		{
+			"path": "template"
+		},
+		{
 			"path": "01"
 		},
 		{
 			"path": "02"
 		},
 		{
-			"path": "template"
-		},
-		{
-			"path": "common"
-		},
-		{
 			"path": "03"
 		},
 		{
 			"path": "04"
+		},
+		{
+			"path": "05"
 		}
 	]
 }

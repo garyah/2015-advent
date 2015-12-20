@@ -1,16 +1,21 @@
 #include <stdio.h>
 
 #include "../common/InputReader.hpp"
+#include "NiceCounter.hpp"
 
 using namespace Common;
+using namespace Advent2015;
 
 int main()
 {
+	NiceCounter counter;
+
 	char *line = NULL;
 	while ((line = InputReader::ReadLine()) != NULL)
 	{
-		// TODO: invoke class code here
-		(void)printf("%s\n", line);
+		counter.addString(line);
 	}
+
+	(void)printf("%u\n", counter.getNiceCount());
 	return 0;
 }
