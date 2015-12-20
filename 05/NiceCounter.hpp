@@ -20,9 +20,12 @@ namespace Advent2015
 			unsigned vowelScore = 0;
 			for (int i = 0; i < sizeof(vowels); ++i)
 			{
-				if (string.find(vowels[i]) != std::string::npos)
+				for (int j = 0; j < string.length(); ++j)
 				{
-					vowelScore++;
+					if (string[j] == vowels[i])
+					{
+						vowelScore++;
+					}
 				}
 			}
 
