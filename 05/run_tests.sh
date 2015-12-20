@@ -1,2 +1,2 @@
-cat tests_input.txt | ./05a > tests_output.txt
-diff tests_output_expected.txt tests_output.txt
+cat tests_input_a.txt | ./05a > tests_output_a.txt
+diff tests_output_a_expected.txt tests_output_a.txt
