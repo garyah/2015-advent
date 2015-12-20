@@ -75,17 +75,17 @@ namespace Advent2015
 				}
 			}
 
-			// string with a doubled letter can be nice
-			/*bool hasDoubles = false;
-			for (int i = 0; i < string.length() - 1; ++i)
+			// string with a doubled letter interleaved by another can be nice
+			bool hasInterleavedDoubles = false;
+			for (int i = 0; i < string.length() - 2; ++i)
 			{
-				if (string[i] == string[i + 1])
+				if (string[i] == string[i + 2])
 				{
-					hasDoubles = true;
+					hasInterleavedDoubles = true;
 				}
-			}*/
+			}
 
-			if (hasDoubledPairs && 1)
+			if (hasDoubledPairs && hasInterleavedDoubles)
 			{
 				// all criteria met
 				m_niceCount++;
