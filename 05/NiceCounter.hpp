@@ -16,6 +16,7 @@ namespace Advent2015
 		{
 			std::string string(cString);
 
+			// string with at least 3 of any vowel can be nice
 			char vowels[] = "aeiou";
 			unsigned vowelScore = 0;
 			for (int i = 0; i < sizeof(vowels); ++i)
@@ -29,8 +30,19 @@ namespace Advent2015
 				}
 			}
 
-			if (vowelScore >= 3)
+			// string with a doubled letter can be nice
+			bool hasDoubles = false;
+			for (int i = 0; i < string.length() - 1; ++i)
 			{
+				if (string[i] == string[i + 1])
+				{
+					hasDoubles = true;
+				}
+			}
+
+			if (vowelScore >= 3 && hasDoubles)
+			{
+				// all criteria met
 				m_niceCount++;
 			}
 		}
